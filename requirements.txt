@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pgvector
+pydantic
+pydantic-settings
+alembic
+langgraph
+anthropic
+sqlglot
+python-dotenv
+pytest

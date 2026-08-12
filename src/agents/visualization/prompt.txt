@@ -1,0 +1,2 @@
+TODO: write the prompt that turns raw query result rows into a one-sentence,
+plain-English summary.

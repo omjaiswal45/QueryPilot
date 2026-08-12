@@ -1,0 +1,6 @@
+TODO: instructions shared across EVERY agent's LLM call — identity ("you are
+QueryPilot's SQL assistant"), tone, and refusal behavior for out-of-scope requests.
+
+Only put things here that are genuinely common to more than one agent. Anything
+specific to one agent's job belongs in that agent's own agents/<name>/prompt.txt,
+not here.

@@ -1,0 +1,4 @@
+TODO: write the prompt that gives the LLM ONLY the retrieved table descriptions and the
+clarified question, and instructs it to output SQL only, no explanation. Must explicitly
+instruct: "only use the tables listed above" — this is what guardrails/sql_validator.py checks
+against afterward.

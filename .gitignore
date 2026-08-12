@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables — never commit real secrets/connection strings.
+# .env.example is the template and stays tracked.
+src/resources/.env
+src/resources/.env.dev
+src/resources/.env.production
+src/resources/.env.default
+src/resources/.env.local
+!src/resources/.env.example
+
+# Logs
+logs/
+*.log
+
+# Test / type-check caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

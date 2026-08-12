@@ -1,0 +1,35 @@
+version: 1
+
+disable_existing_loggers: False
+
+formatters:
+  standard:
+    format: "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: standard
+    stream: ext://sys.stdout
+
+  timed_file:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: DEBUG
+    formatter: standard
+    filename: logs/app.log
+    when: midnight        # rotate nightly at 00:00
+    interval: 1           # every 1 day
+    backupCount: 7        # keep last 7 log files
+    utc: False            # set True if you want UTC rotation
+    encoding: utf-8
+
+loggers:
+  myapp:
+    level: DEBUG
+    handlers: [console, timed_file]
+    propagate: False
+
+root:
+  level: INFO
+  handlers: [console, timed_file]

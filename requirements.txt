@@ -1,13 +1,27 @@
+# Web framework
 fastapi
 uvicorn[standard]
+
+# Dependency injection container (wires infra/repositories/services together in configrations/container.py)
+punq
+
+# App DB (PostgreSQL) + migrations
 sqlalchemy
 psycopg2-binary
+alembic
+
+# Schema-embedding vector store (pgvector extension, same Postgres instance)
 pgvector
+
+# Settings & validation
 pydantic
 pydantic-settings
-alembic
+python-dotenv
+environs
+
+# Agent orchestration + LLM
 langgraph
 anthropic
+
+# SQL safety validation
 sqlglot
-python-dotenv
-pytest

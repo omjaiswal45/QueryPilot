@@ -8,10 +8,13 @@ TODO:
   for you) rather than surface as a mystery None three layers down at request time.
 - Instantiate ONE shared `settings` object here for the rest of the app to import.
 """
+from sqlalchemy.engine import Engine
+
 from configurations.container import Container
 from configurations.llm_config import LlmConfig
 from configurations.app_db_config import AppDbConfig
 from configurations.business_db_config import BusinessDbConfig
+from infrastructures.db.app_db_client import AppDbProvider
 from configurations.logger import AppLogger
 logger = AppLogger.get_logger(__name__)
 
@@ -30,6 +33,10 @@ class ConfigRegisterer:
             app_db_config = AppDbConfig(env)
             container.register(AppDbConfig, instance=app_db_config)
             logger.info("APP Db configuration registered successfully")
+
+            app_db_engine = AppDbProvider.create_app_db_engine()
+            container.register(Engine, instance=app_db_engine)
+            logger.info("App DB engine created and registered successfully")
 
             business_db_config = BusinessDbConfig(env)
             container.register(BusinessDbConfig, instance=business_db_config)

@@ -1,8 +1,16 @@
-"""Clarifies ambiguous asks, using prompt.txt in this folder (with
-src/prompts/system_prompt.txt prepended for shared tone/safety instructions).
+from infrastructures.llm.llm_client import LlmClient
+from configurations.logger import AppLogger
+logger = AppLogger.get_logger(__name__)
 
-TODO:
-def run(state: AgentState) -> dict:
-    # call infrastructures/llm/llm_client.py, return {"clarified_question": ...}
-    ...
-"""
+PROMPT_PATH = __file__.replace("query_understanding_agent.py", "prompt.txt")
+
+
+def run(state: dict) -> dict:
+    with open(PROMPT_PATH, "r") as f:
+        system_prompt = f.read()
+
+    clarified = LlmClient.complete(
+        prompt=state["raw_question"],
+        system=system_prompt,
+    )
+    return {"clarified_question": clarified}

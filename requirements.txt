@@ -21,7 +21,7 @@ environs
 
 # Agent orchestration + LLM
 langgraph
-anthropic
+groq
 
 # SQL safety validation
 sqlglot

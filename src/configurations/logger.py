@@ -16,7 +16,7 @@ class AppLogger:
 
     @classmethod
     def get_logger(cls, file_name):
-        current_env = os.getenv('ENV').lower()
+        current_env = os.getenv('ENV', 'dev').lower()
         if not cls._configured:
             yaml_path = Path(__file__).parent / "logging.yaml"
             with open(yaml_path, 'r') as file:
